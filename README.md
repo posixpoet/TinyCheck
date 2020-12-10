@@ -119,6 +119,19 @@ On the [Suricata](https://suricata-ids.org/) part, the network capture is analys
 - Device name exfiltred in clear-text;
 - Access point SSID exfiltred in clear-text;
 
+#### Capture location and manual analysis
+The captured data (pcap & log files) are stored in /tmp/SESSIONIDHERE.
+The analysis can be manually initiated by running:
+```console
+$ sudo python3 /usr/share/tinycheck/analysis/analysis.py /tmp/SESSIONID/
+```
+The main report file "alerts.json" may be translated to HTML via the Python module "json2html" for further off-device presentation.
+
+### Usage - Privacy Caution
+(In settings where absolut anonymity/privacy is required)
+Please be aware that, apart from PCAP and other log files, the file "device.json" contains the IP, MAC and timestamp of capture in easily available format.
+
+
 ### Watchers?
 
 In order to keep IOCs and whitelist updated constantly, TinyCheck integrates something called "watchers". It is a very simple service with few lines of Python which grabs new formated IOCs or whitelist elements from public URLs. As of today, TinyCheck integrates two urls, one for the whitelist and one for the IOCs (The formated files are present in the assets folder). 
